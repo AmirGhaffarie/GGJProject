@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &101701495356643140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7923843728813664250}
+  m_Layer: 6
+  m_Name: GroundCheckPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7923843728813664250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101701495356643140}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.974, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 182228649690522276}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5804431513995314216
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,11 +43,10 @@ GameObject:
   - component: {fileID: 4509300677630609638}
   - component: {fileID: 4093967194251005395}
   - component: {fileID: 4342491200883035939}
-  - component: {fileID: 8652886024819412528}
-  - component: {fileID: 1830522199707850657}
-  m_Layer: 0
+  - component: {fileID: 1172329026208439699}
+  m_Layer: 6
   m_Name: Monkey
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +62,8 @@ Transform:
   m_LocalPosition: {x: -3.1303844, y: 3.2383513, z: 1.746624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7923843728813664250}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -126,7 +157,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8652886024819412528
+--- !u!114 &1172329026208439699
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,22 +166,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5804431513995314216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed64bcf2ea382c641885e15b6ed68ae1, type: 3}
+  m_Script: {fileID: 11500000, guid: 96f3fae22824d7b478845363cfb70368, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  collisionLayer:
+  speed: 7
+  groundLayers:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &1830522199707850657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5804431513995314216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71082e7a5e992374bb8f0fa6965d2fae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  groundCheckPoint: {fileID: 7923843728813664250}
+  jumpForce: 10
+  fallDampen: 0.9
+  JumpBufferTime: 0.5
+  OffPlatformBufferTime: 0.5
+  deadZone: 0.1
+  hangTime: 1
