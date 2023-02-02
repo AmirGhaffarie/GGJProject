@@ -16,7 +16,7 @@ namespace Assets.Scripts.Environment
 
         void Awake()
         {
-            collider = GetComponent<Collider2D>();
+            collider = GetComponentInChildren<Collider2D>();
         }
 
         public void StepOn()
@@ -33,6 +33,7 @@ namespace Assets.Scripts.Environment
             if (Time.time > stepOnTime + durability)
             {
                 collider.enabled = false;
+                GetComponent<Animation>().Play();
                 Destroy(gameObject, 1);
             }
 
