@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 4509300677630609638}
   - component: {fileID: 4093967194251005395}
   - component: {fileID: 4342491200883035939}
-  - component: {fileID: 1172329026208439699}
+  - component: {fileID: 1889387296531230019}
+  - component: {fileID: 7609152126146316877}
   m_Layer: 6
   m_Name: Monkey
   m_TagString: Player
@@ -157,7 +158,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1172329026208439699
+--- !u!95 &1889387296531230019
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804431513995314216}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7575a5f78920a4a4684344ba38681461, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7609152126146316877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,9 +195,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   groundCheckPoint: {fileID: 7923843728813664250}
-  jumpForce: 10
-  fallDampen: 0.9
+  jumpForce: 18
+  fallDampen: 0.5
   JumpBufferTime: 0.5
   OffPlatformBufferTime: 0.5
   deadZone: 0.1
+  maxJumpCount: 2
   hangTime: 1

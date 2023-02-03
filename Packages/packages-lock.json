@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.sjai013.abilitysystem": {
-      "version": "file:com.sjai013.abilitysystem",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "com.unity.2d.animation": {
       "version": "7.0.9",
       "depth": 1,
@@ -93,15 +87,6 @@
     },
     "com.unity.ads": {
       "version": "3.7.5",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.analytics": {
-      "version": "3.6.12",
       "depth": 0,
       "source": "registry",
       "dependencies": {

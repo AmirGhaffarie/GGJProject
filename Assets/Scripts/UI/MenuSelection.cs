@@ -1,21 +1,22 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 public class MenuSelection : MonoBehaviour
 {
-    private const string nextButton = "Down";
-    private const string prevButton = "Up";
-    private const string rightButton = "Right";
-    private const string leftButton = "Left";
-    private const string submitButton = "Enter";
+    [SerializeField] InputAction nextButton;
+    [SerializeField] InputAction prevButton;
+    [SerializeField] InputAction rightButton;
+    [SerializeField] InputAction leftButton;
+    [SerializeField] InputAction submitButton;
 
     [SerializeField] MenuButton[] buttons;
     [SerializeField] bool resetOnEnable;
     [SerializeField] UnityEvent onSelectionChange;
     [SerializeField] UnityEvent onSelect;
     int currentButtonIndex = 0;
-    MenuButton currentButton => buttons[currentButtonIndex];
+    MenuButton CurrentButton => buttons[currentButtonIndex];
     private void Awake()
     {
         ResetButtons();
@@ -25,7 +26,7 @@ public class MenuSelection : MonoBehaviour
     {
         currentButtonIndex = 0;
         Array.ForEach(buttons, b => b.OnDeselect());
-        currentButton.OnSelect();
+        CurrentButton.OnSelect();
     }
 
     private void OnEnable()
@@ -36,31 +37,31 @@ public class MenuSelection : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetButtonDown(nextButton))
+        if (nextButton.WasPressedThisFrame())
             GoNext();
-        if (Input.GetButtonDown(prevButton))
+        if (prevButton.WasPressedThisFrame())
             GoPrev();
-        if (Input.GetButtonDown(submitButton))
+        if (submitButton.WasPressedThisFrame())
             SubmitButton();
-        if (Input.GetButtonDown(rightButton))
+        if (rightButton.WasPressedThisFrame())
             ButtonRight();
-        if (Input.GetButtonDown(leftButton))
+        if (leftButton.WasPressedThisFrame())
             ButtonLeft();
     }
 
     private void ButtonLeft()
     {
-        currentButton.OnLeft();
+        CurrentButton.OnLeft();
     }
 
     private void ButtonRight()
     {
-        currentButton.OnRight();
+        CurrentButton.OnRight();
     }
 
     private void SubmitButton()
     {
-        currentButton.OnSubmit();
+        CurrentButton.OnSubmit();
         onSelect.Invoke();
     }
 
@@ -69,9 +70,9 @@ public class MenuSelection : MonoBehaviour
         if (currentButtonIndex > 0)
         {
             onSelectionChange.Invoke();
-            currentButton.OnDeselect();
+            CurrentButton.OnDeselect();
             currentButtonIndex--;
-            currentButton.OnSelect();
+            CurrentButton.OnSelect();
         }
     }
 
@@ -80,9 +81,9 @@ public class MenuSelection : MonoBehaviour
         if (currentButtonIndex < buttons.Length - 1)
         {
             onSelectionChange.Invoke();
-            currentButton.OnDeselect();
+            CurrentButton.OnDeselect();
             currentButtonIndex++;
-            currentButton.OnSelect();
+            CurrentButton.OnSelect();
         }
     }
 }
