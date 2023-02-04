@@ -122,11 +122,10 @@ public class Branch : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
 
     public void UpdateStructure()
     {
-        transform.localScale = Vector3.one * level;
+        transform.localScale = Vector3.one * level * .5f;
         if (parent == null)
         {
-            transform.position = Vector3.zero;
-            transform.rotation = Quaternion.identity;
+            transform.position = new Vector3(0, 2.8f, 0);
         }
         else
         {
